@@ -8,7 +8,7 @@ module Fluent
     class ClickhouseOutputJSON < BufferedOutput
         Fluent::Plugin.register_output("clickhousejson", self)
 
-        DEFAULT_TIMEKEY = 60 * 60
+        DEFAULT_TIMEKEY = 60 * 60 * 24
 
         desc "IP or fqdn of ClickHouse node"
         config_param :host, :string
@@ -58,7 +58,7 @@ module Fluent
         end
 
         def make_uri(conf)
-            uri = URI("http://#{ conf["host"] }:#{ conf["port"] || 8123 }/")
+            uri = URI("http://#{ conf["host"] || 'localhost' }:#{ conf["port"] || 8123 }/")
             params = {
                 "database" => conf["database"] || "default",
                 "user"     => conf["user"] || "default",
