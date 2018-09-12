@@ -44,6 +44,10 @@ module Fluent
             test_connection(conf)
         end
 
+        def multi_workers_ready?
+            true
+        end
+
         def test_connection(conf)
             uri = @uri.clone
             uri.query = URI.encode_www_form(@uri_params.merge({"query" => "SHOW TABLES"}))
