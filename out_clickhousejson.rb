@@ -11,7 +11,7 @@ module Fluent
         DEFAULT_TIMEKEY = 60 * 60 * 24
 
         desc "IP or fqdn of ClickHouse node"
-        config_param :host, :string
+        config_param :host, :string, default: "localhost"
         desc "Port of ClickHouse HTTP interface"
         config_param :port, :integer, default: 8123
         desc "Database to use"
