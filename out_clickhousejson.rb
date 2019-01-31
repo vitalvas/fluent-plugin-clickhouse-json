@@ -52,9 +52,9 @@ module Fluent
             uri = @uri.clone
             uri.query = URI.encode_www_form(@uri_params.merge({"query" => "SHOW TABLES"}))
             begin
-        	res = Net::HTTP.get_response(uri)
+                res = Net::HTTP.get_response(uri)
             rescue Errno::ECONNREFUSED
-        	raise Fluent::ConfigError, "Couldn't connect to ClickHouse at #{ @uri } - connection refused"
+                raise Fluent::ConfigError, "Couldn't connect to ClickHouse at #{ @uri } - connection refused"
             end
             if res.code != "200"
                 raise Fluent::ConfigError, "ClickHouse server responded non-200 code: #{ res.body }"
@@ -78,7 +78,7 @@ module Fluent
             end
 
             return Yajl.dump(record) + "\n"
-	    end
+        end
 
         def write(chunk)
             uri = @uri.clone
