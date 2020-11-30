@@ -5,7 +5,7 @@
 Put out_clickhousejson.rb to /etc/td-agent/plugin
 
 ```
-wget -O /etc/td-agent/plugin/out_clickhousejson.rb  https://gitlab.jotcdn.net/libs/fluent-plugin-clickhouse-json/raw/master/out_clickhousejson.rb
+wget -O /etc/td-agent/plugin/out_clickhousejson.rb  https://raw.githubusercontent.com/vitalvas/fluent-plugin-clickhouse-json/master/out_clickhousejson.rb
 ```
 
 There is mimimum fields in example td-agent.conf:
